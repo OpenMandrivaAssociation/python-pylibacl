@@ -11,6 +11,7 @@ Source0: 	http://prdownloads.sourceforge.net/%{rname}/%{rname}-%{version}.tar.bz
 BuildRequires:	acl-devel python-devel
 Provides:	%{rname} = %{version}-%{release}
 Obsoletes:	%{rname}
+BuildRoot: 	%{_tmppath}/%{name}-buildroot
 
 %description
 This is an extension for Python which implements POSIX ACLs (POSIX.1e).
