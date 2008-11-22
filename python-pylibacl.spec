@@ -8,7 +8,9 @@ License:	GPL
 Group: 		Development/Python
 URL: 		http://%{rname}.sourceforge.net
 Source0: 	http://prdownloads.sourceforge.net/%{rname}/%{rname}-%{version}.tar.bz2
-BuildRequires:	acl-devel python-devel
+BuildRequires:	acl-devel
+BuildRequires:	python-devel
+BuildRequires:	python-setuptools
 Provides:	%{rname} = %{version}-%{release}
 Obsoletes:	%{rname}
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
