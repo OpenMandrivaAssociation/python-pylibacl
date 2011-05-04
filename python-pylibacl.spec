@@ -3,7 +3,7 @@
 Summary: 	Posix ACL module for Python
 Name: 		python-%{rname}
 Version: 	0.5.0
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 License:	GPL
 Group: 		Development/Python
 URL: 		http://%{rname}.sourceforge.net
