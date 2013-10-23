@@ -2,12 +2,12 @@
 
 Summary: 	Posix ACL module for Python
 Name: 		python-%{rname}
-Version: 	0.5.0
-Release: 	5
+Version: 	0.5.1
+Release: 	1
 License:	GPL
 Group: 		Development/Python
 URL: 		http://%{rname}.sourceforge.net
-Source0: 	http://prdownloads.sourceforge.net/%{rname}/%{rname}-%{version}.tar.gz
+Source0: 	https://github.com/downloads/iustin/pylibacl/pylibacl-%{version}.tar.gz
 BuildRequires:	acl-devel
 BuildRequires:	python-devel
 BuildRequires:	python-setuptools
@@ -74,3 +74,4 @@ python setup.py install --root=%{buildroot}
 
 * Tue Jul 20 2004 Buchan Milne <bgmilne@linux-mandrake.com> 0.2.1-1mdk
 - First Mandrake package
+
