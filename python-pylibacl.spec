@@ -10,7 +10,7 @@ Url:		http://%{rname}.sourceforge.net
 Source0:	https://github.com/downloads/iustin/pylibacl/pylibacl-%{version}.tar.gz
 BuildRequires:	python-setuptools
 BuildRequires:	acl-devel
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 Provides:	%{rname} = %{version}-%{release}
 
 %description
