@@ -27,5 +27,5 @@ python setup.py install --root=%{buildroot}
 
 %files
 %{py_platsitedir}/%{rname}-%{version}-py%{py_ver}.egg-info
-%{py_platsitedir}/posix1e.so
+%{py_platsitedir}/posix1e*.so
 
