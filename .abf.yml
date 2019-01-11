@@ -1,4 +1,5 @@
 removed_sources:
   pylibacl-0.5.0.tar.gz: cdd531494ebc226e718a8bc8bd9eb4cf4bffee08
-sources:
   pylibacl-0.5.1.tar.gz: 3dbaade48bc5e217b7e88d762ec739af63b94827
+sources:
+  pylibacl-0.5.3.tar.gz: dbe0e46c9d4024ee558feb5d17e0e2b5209502f5
