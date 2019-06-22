@@ -3,11 +3,11 @@
 Summary:	Posix ACL module for Python
 Name:		python-%{rname}
 Version:	0.5.1
-Release:	10
+Release:	1
 License:	GPLv2
 Group:		Development/Python
 Url:		http://%{rname}.sourceforge.net
-Source0:	https://github.com/downloads/iustin/pylibacl/pylibacl-%{version}.tar.gz
+Source0:	pylibacl.tar.gz
 BuildRequires:	python-setuptools
 BuildRequires:	acl-devel
 BuildRequires:	pkgconfig(python3)
