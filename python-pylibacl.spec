@@ -6,7 +6,7 @@ Version:	0.6.0
 Release:	2
 License:	GPLv2
 Group:		Development/Python
-Url:		http://%{rname}.sourceforge.net
+Url:		https://%{rname}.sourceforge.net
 Source0:	https://files.pythonhosted.org/packages/09/23/ad116ac73a352ef82dba4c0a7b0536ed7b5071bd48227c211b745adcc468/pylibacl-0.6.0.tar.gz
 BuildRequires:	python-setuptools
 BuildRequires:	acl-devel
