@@ -1,5 +1,6 @@
 %define module pylibacl
-%bcond_without test
+# disable test on abf
+%bcond_with test
 
 Name:		python-pylibacl
 Version:	0.7.2
