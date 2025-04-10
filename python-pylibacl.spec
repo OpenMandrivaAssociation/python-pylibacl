@@ -1,31 +1,50 @@
-%define rname pylibacl
+%define module pylibacl
+%bcond_without test
 
+Name:		python-pylibacl
+Version:	0.7.2
+Release:	1
 Summary:	Posix ACL module for Python
-Name:		python-%{rname}
-Version:	0.6.0
-Release:	2
-License:	GPLv2
+License:	LGPL-2.1-or-later
 Group:		Development/Python
-Url:		https://%{rname}.sourceforge.net
-Source0:	https://files.pythonhosted.org/packages/09/23/ad116ac73a352ef82dba4c0a7b0536ed7b5071bd48227c211b745adcc468/pylibacl-0.6.0.tar.gz
-BuildRequires:	python-setuptools
-BuildRequires:	acl-devel
+Url:		https://%{module}.sourceforge.net
+Source0:	https://files.pythonhosted.org/packages/source/p/pylibacl/%{module}-%{version}.tar.gz
+
+BuildRequires:	python
+BuildRequires:	pkgconfig(libacl)
 BuildRequires:	pkgconfig(python3)
-Provides:	%{rname} = %{version}-%{release}
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(wheel)
+%if %{with test}
+BuildRequires:	python%{pyver}dist(pytest)
+%endif
+Provides:	%{module} = %{version}-%{release}
 
 %description
-This is an extension for Python which implements POSIX ACLs (POSIX.1e).
+This is a Python 3.7+ extension module allows you to manipulate the
+POSIX.1e Access Control Lists present in some OS/file-systems combinations
 
 %prep
-%setup -qn %{rname}-%{version}
+%autosetup -n %{module}-%{version} -p1
 
 %build
-env CFLAGS="%{optflags}" python setup.py build
+# Remove bundled egg-info
+rm -rf %{module}.egg-info/
+env CFLAGS="%{optflags}"
+%py_build
 
 %install
-python setup.py install --root=%{buildroot}
+%py3_install
+
+%if %{with test}
+%check
+pytest
+%endif
 
 %files
-%{py_platsitedir}/%{rname}-%{version}-py%{py_ver}.egg-info
+%{py_platsitedir}/%{module}-%{version}*.*-info
 %{py_platsitedir}/posix1e*.so
-
+%license COPYING
+%doc README.md
+%doc NEWS.md
