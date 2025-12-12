@@ -4,7 +4,7 @@
 
 Name:		python-pylibacl
 Version:	0.7.2
-Release:	1
+Release:	2
 Summary:	Posix ACL module for Python
 License:	LGPL-2.1-or-later
 Group:		Development/Python
