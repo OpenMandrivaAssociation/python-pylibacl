@@ -1,19 +1,17 @@
 %define module pylibacl
-# disable test on abf
-%bcond_with test
+%bcond test 1
 
 Name:		python-pylibacl
-Version:	0.7.2
-Release:	2
+Version:	0.7.3
+Release:	1
 Summary:	Posix ACL module for Python
 License:	LGPL-2.1-or-later
 Group:		Development/Python
-Url:		https://%{module}.sourceforge.net
-Source0:	https://files.pythonhosted.org/packages/source/p/pylibacl/%{module}-%{version}.tar.gz
-
-BuildRequires:	python
+URL:		https://github.com/iustin/pylibacl
+Source0:	https://files.pythonhosted.org/packages/source/p/pylibacl/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
+BuildSystem:	python
 BuildRequires:	pkgconfig(libacl)
-BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(wheel)
@@ -28,18 +26,21 @@ POSIX.1e Access Control Lists present in some OS/file-systems combinations
 
 %prep
 %autosetup -n %{module}-%{version} -p1
-
-%build
 # Remove bundled egg-info
 rm -rf %{module}.egg-info/
-env CFLAGS="%{optflags}"
+
+%build
+export CFLAGS="%{optflags}"
+export LDFLAGS="%{ldflags} -lpython%{py_ver}"
 %py_build
 
 %install
-%py3_install
+%py_install
 
 %if %{with test}
 %check
+export CI=true
+export PYTHONPATH=%{buildroot}%{python_sitearch}:%{python_sitearch}
 pytest
 %endif
 
